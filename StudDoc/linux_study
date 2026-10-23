@@ -1,0 +1,16 @@
+1. qutebrowser 页面无法播放视频 执行下面命令
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install libavcodec-freeworld
+
+
+qemu-system-x86_64 \
+  -enable-kvm \
+  -cpu host \
+  -smp 4 \
+  -m 4096 \
+  -device virtio-vga-gl \
+  -display sdl,gl=on \
+  -drive file=fedora.qcow2,if=virtio,cache=writeback \
+  -cdrom Fedora-*.iso \
+  -boot d
